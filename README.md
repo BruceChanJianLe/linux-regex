@@ -4,6 +4,9 @@ Regex == Regular Expression
 
 Regular expressions are all about text! Regular expressions is a tool to help working with text eaiser by describing text pattern.
 
+- Regular expression engines are eager.
+- Regular expression engines are greedy.
+
 ## Advantages
 
 **Regular Expression**
@@ -136,3 +139,43 @@ Class | Meaning | Equivalent
 ```bash
 ps aux | grep --regexp="s[[:digit:]]"
 ```
+
+## Repetition Metacharacters
+
+**Unlimited Repetition**
+Name | Metacharacter | Meaning | Example
+--- | --- |--- | ---
+Asterisk | * | Preceding item zero more times | /apples*/ matches "apple", "apples", and "applessssss'
+Plus | + | Preceding item one or more times | /apples+/ matches "apples" and "applessssss" but not "apple"
+Question mark | ? | Preceding item zero or one time | /apples?/ matches "apple" and "apples" but not "applessssss"
+
+**Examples**
+/colou?r/ matches "color" and "colour"
+/\d\d\d\d*/ is the same as /\d\d\d+/ which matches "123456789" "1234" "123" but not "12"
+/\w+s/ matches any word that ends with 's'
+
+**Quantified Repetition**
+Name | Metacharacter | Meaning | Example
+--- | --- |--- | ---
+Opening curly braces | { | Start quantified repetition of preceding item | -
+Closing curly braces | } | End quantified repetition of preceding item | -
+Curly braces | {min,max} | min and max are positive numbers; min must always be included; can be zero; max is optional
+
+**Examples**
+\d{4,8} matches numbers with four to eight digits
+\d{4} matches numbers with exactly four digits (min is max)
+\d{4,} matches numbers with four or more digits (max is infinite)
+\d{3}-\d{3}-\d{4} matches use number line 555-867-5309
+
+**Greedy Expression**
+
+**Lazy Expression**
+Name | Metacharacter | Meaning | Example
+--- | --- |--- | ---
+Lazy | ? | Make preceding quantifier lazy | -
+
+Usage: *?, +? <metacharacter>?
+This uses the lazy method to search instead of the default greedy method.  
+
+## Grouping and Alternating Metacharacters
+
