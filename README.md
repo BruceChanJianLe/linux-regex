@@ -62,7 +62,7 @@ It is the rise of the web that encourages more use of regex in many other pragra
 - Global: /re/g
 - Case-insensitive: /re/i
 - Multiline: /re/m
-- Dot-matches-all: /re/s
+- Dot-matches-all: /re/s (matches also return line)
 
 ## Use regexpal.com
 
@@ -75,4 +75,64 @@ It is the rise of the web that encourages more use of regex in many other pragra
 **Only a few metacharacters to learn**
 ```regex
 \ . * + - {} [] ^ $ | ? () : ! =
+```
+
+**Can have more than more than one meaning**
+
+**Variation between regex engines**
+
+Name | Metacharacter | Meaning | Example
+--- | --- |--- | ---
+Wildcard | . | Any character except newline | /h.t/ matches "hat", "hot", "hit", but not "heat"
+Escaping | \ | Allow use of metacharacters as literal characters | /9\.00/ matches "9.00" but not "9500" or "9-00"
+Begin set | [ | Begin a character set | - 
+End set | ] | End a character set | - 
+Set | [] | Use to define a character set | /gr[ea]y/ matches "grey" and "gray"
+Ranges | - | Use to define a range of character | /[A-Z]ello/ matches "Hello"; [0-9], [A-Za-z], [a-ek-ou-y]
+Caret | ^ | Negate a character | /see[^mn]/ matches "seek", "see " and "sees" but not "seem" or "seen"
+
+Name | Special Character | Meaning
+--- | --- | ---
+Space | ` ` | Spaces
+Tab | `\t` | Tabs
+Line return | `\r, \n, \r\n` | Line returns
+Non-printable character | bell `\a`, escape `\e`,  form feed `\f`, vertical tab `\v` | bell, escape, form feed, vertical tab
+ASCII or ANSI code |  `0xA9 = \xA9` | codes that control appearance of a text terminal
+
+Shorthand | Meaning | Equivalen
+--- | --- | ---
+\d | Digit | [0-9]
+\w | Word character | [a-zA-Z0-9]
+\s | Whitespaces | [ \t\r\n]
+\D | Not digit | [^0-9]
+\W | Not word charater | [^a-zA-Z0-9_]
+\S | Not whitespace | [^ \t\r\n]
+
+**Examples**
+/\d\d\d\d/ matches "1984" but not "text"
+/\w\w\w/ matches "ABC", "123", and "1_A"
+/\w\s\w\w/ matches "I am" but not "Am I"
+/[\w\-]/ matches as word character or hyphen (useful)
+/[\d\s]/ matches any digit or whitespace character
+/[^\d]/ is the same as /\D\ and /[^0-9]/
+
+**POSIX BRACKET EXPRESSIONS**
+Class | Meaning | Equivalent
+--- | --- | ---
+[:alpha:] | Alphabetic characters | A-za-z
+[:digit:] | Numeric characters | 0-9
+[:alnum:] | Alphanumeric characters | A-Za-z0-9
+[:lower:] | Lowercase alphabetic characters | a-z
+[:upper:] | Uppercase alphabetic characters | A-Z
+[:punct:] | Punctuation characters | -
+[:space:] | Space characters | \s
+[:blank:] | Blank characters (space, tab) | -
+[:print:] | Printable characters, space | -
+[:graph:] | Printable characters, no space | -
+[:cntrl:] | Control characters (non-printable) | -
+[:xdigit:] | Hexadecimal characters | A-Fa-f0-9
+
+**Examples**
+```bash
+ps aux | grep --regexp="s[[:digit:]]"
 ```
