@@ -238,7 +238,26 @@ Do keep in mind of line breaks and multi-line mode.
 **Word Boundaries**  
 Name | Metacharacter | Meaning | Example
 --- | --- |--- | ---
-Backslash lower-case b | \b | Word boundary (start/end of word) | 
-Backslash Upper-case b | \b | Not a word boundary | 
+Backslash lower-case b | \b | Word boundary (start/end of word) | \b\w+\b\ finds four matches in "This is a test."
+Backslash Upper-case b | \B | Not a word boundary | /\Bw+\B/ finds two matches in "This is a test." ("hi" and "es")
 
+- Reference a position, not an actual character
+- Conditions for matching
+    - Before the first word character in the string
+    - After the last word character in the string
+    - Between a word character and a non-word character
+- Word characters: [A-Za-z0-9_]
+- Support
+    - Most regex engines, not in early Unix tools (BREs)
+- Caution
+    - A space is not a word boundary
+    - Word boundaries reference a position
+        - Not an actual character
+        - Zero-length
+- Examples
+    - String: "apples and oranges"
+    - No match: /apples\band\boranges/
+    - Match: /apples\b \band\b \boranges/
+
+## Back Reference
 
