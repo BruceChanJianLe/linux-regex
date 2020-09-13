@@ -179,3 +179,41 @@ This uses the lazy method to search instead of the default greedy method.
 
 ## Grouping and Alternating Metacharacters
 
+**Grouping Character**  
+Name | Metacharacter | Meaning | Example
+--- | --- |--- | ---
+Left Parentheses | ( | Start grouped expression | /(abc)+/ matches "abc" and "abcabcabc"
+Right Parentheses | ) | End grouped expression | /(in)?dependent/ matches "independent" and "dependent"
+
+- Group portions of the expression
+    - Apply repetition operators to a group
+    - Makes expressions easier to read
+    - Captures group for use in matching and replacing
+    - Cannot be used inside of character set
+
+**Alternation Character**  
+Name | Metacharacter | Meaning | Example
+--- | --- |--- | ---
+Pipe / Or | \| | Match previous or next expression | /apple|orange/ matches "apple" and "orange"
+
+- It is an OR operator
+    - Either match expression on the left or match expression on the right
+    - Ordered, leftmost expression gets precedence
+    - Multiple choices can be daisy-chained
+    - Group alternation expressions to keep them distinct
+
+**Writing Logical and Efficient Alternations**  
+
+Regex are eager and greedy!  
+
+**Repeating and Nesting Alternations**  
+
+- Repeating
+    - First matched alternation does not effect the next matches
+    - /(AA|BB|CC){6}/ matches "AABBAACCAABB"
+
+- Nesting
+    - Check nesting carefully
+    - /(\d{2}([A-Z]{2}|-\d\w\d\w)|\d{4}(-\d{2}-[A-Z]{2,8}|_x[A-F]))/
+    - Trade-off between precision, readability and efficiency
+
