@@ -217,3 +217,28 @@ Regex are eager and greedy!
     - /(\d{2}([A-Z]{2}|-\d\w\d\w)|\d{4}(-\d{2}-[A-Z]{2,8}|_x[A-F]))/
     - Trade-off between precision, readability and efficiency
 
+## Anchored Metacharacters
+
+**Start and End Metacharacter**  
+Name | Metacharacter | Meaning | Example
+--- | --- |--- | ---
+Caret | ^ | Start of string/line | /^apple/ 
+Dollar Sign | $ | End of string/line | /apple$/
+Backslash A | \A | Start of string, never end of line | /\Aapple/
+Backslash Z | \Z | End of string, never end of line | /apple\Z/
+
+Note that caret can also meas negate but here it has a different meaning.
+
+- Reference a position, not an actual character
+    - Zero-width
+
+Note that \A and \Z may not be supported on some platform.  
+Do keep in mind of line breaks and multi-line mode.
+
+**Word Boundaries**  
+Name | Metacharacter | Meaning | Example
+--- | --- |--- | ---
+Backslash lower-case b | \b | Word boundary (start/end of word) | 
+Backslash Upper-case b | \b | Not a word boundary | 
+
+
