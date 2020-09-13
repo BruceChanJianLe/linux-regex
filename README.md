@@ -259,5 +259,23 @@ Backslash Upper-case b | \B | Not a word boundary | /\Bw+\B/ finds two matches i
     - No match: /apples\band\boranges/
     - Match: /apples\b \band\b \boranges/
 
-## Back Reference
+## Backreferences
 
+- Grouped expressions are captured
+    - Stores the matched portion in parentheses
+        - /a(p{2}l)e/ matches "apple" and stores "ppl"
+        - Stores the data matched, not the expression
+    - Automatically, by default save the data
+- Backreferences allow access to captured data
+    - Refer to first backreference with \1
+
+Name | Metacharacter | Meaning | Example
+--- | --- |--- | ---
+Backslash 1 to 9 | \1 through \9 | Backreference for positions 1 to 9 |
+
+- Usage
+    - Can be used in the same expression as the group
+    - Can be accessed after the match is complete
+    - Cannot be used inside character classes
+- Support
+    - Most regex engines support only \1 to \9
