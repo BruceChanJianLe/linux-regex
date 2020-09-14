@@ -111,13 +111,13 @@ Shorthand | Meaning | Equivalen
 \W | Not word charater | [^a-zA-Z0-9_]
 \S | Not whitespace | [^ \t\r\n]
 
-**Examples**
-/\d\d\d\d/ matches "1984" but not "text"
-/\w\w\w/ matches "ABC", "123", and "1_A"
-/\w\s\w\w/ matches "I am" but not "Am I"
-/[\w\-]/ matches as word character or hyphen (useful)
-/[\d\s]/ matches any digit or whitespace character
-/[^\d]/ is the same as /\D\ and /[^0-9]/
+**Examples**  
+/\d\d\d\d/ matches "1984" but not "text"  
+/\w\w\w/ matches "ABC", "123", and "1_A"  
+/\w\s\w\w/ matches "I am" but not "Am I"  
+/[\w\-]/ matches as word character or hyphen (useful)  
+/[\d\s]/ matches any digit or whitespace character  
+/[^\d]/ is the same as /\D\ and /[^0-9]/  
 
 **POSIX BRACKET EXPRESSIONS**
 Class | Meaning | Equivalent
@@ -149,10 +149,10 @@ Asterisk | * | Preceding item zero more times | /apples*/ matches "apple", "appl
 Plus | + | Preceding item one or more times | /apples+/ matches "apples" and "applessssss" but not "apple"
 Question mark | ? | Preceding item zero or one time | /apples?/ matches "apple" and "apples" but not "applessssss"
 
-**Examples**
-/colou?r/ matches "color" and "colour"
-/\d\d\d\d*/ is the same as /\d\d\d+/ which matches "123456789" "1234" "123" but not "12"
-/\w+s/ matches any word that ends with 's'
+**Examples**  
+/colou?r/ matches "color" and "colour"  
+/\d\d\d\d*/ is the same as /\d\d\d+/ which matches "123456789" "1234" "123" but not "12"  
+/\w+s/ matches any word that ends with 's'  
 
 **Quantified Repetition**
 Name | Metacharacter | Meaning | Example
@@ -161,11 +161,11 @@ Opening curly braces | { | Start quantified repetition of preceding item | -
 Closing curly braces | } | End quantified repetition of preceding item | -
 Curly braces | {min,max} | min and max are positive numbers; min must always be included; can be zero; max is optional
 
-**Examples**
-\d{4,8} matches numbers with four to eight digits
-\d{4} matches numbers with exactly four digits (min is max)
-\d{4,} matches numbers with four or more digits (max is infinite)
-\d{3}-\d{3}-\d{4} matches use number line 555-867-5309
+**Examples**  
+\d{4,8} matches numbers with four to eight digits  
+\d{4} matches numbers with exactly four digits (min is max)  
+\d{4,} matches numbers with four or more digits (max is infinite)  
+\d{3}-\d{3}-\d{4} matches use number line 555-867-5309  
 
 **Greedy Expression**
 
