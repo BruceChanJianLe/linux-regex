@@ -279,3 +279,10 @@ Backslash 1 to 9 | \1 through \9 | Backreference for positions 1 to 9 |
     - Cannot be used inside character classes
 - Support
     - Most regex engines support only \1 to \9
+    - Some regex engines support \10 to \99
+    - Some regex engines use $1 to $9 instead
+
+- Examples
+    - /(apples) to \1/ matches "apples to apples"
+    - /(ab)(cd)(ef)\3\2\1/ matches "abcdefefcdab"
+    - /<(i|em)>.+?</\1> matches "<i>Hello</i>" and "<em>Hello</em>"; it does not match "<i>Hello</em>
