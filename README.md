@@ -271,7 +271,7 @@ Backslash Upper-case b | \B | Not a word boundary | /\Bw+\B/ finds two matches i
 
 Name | Metacharacter | Meaning | Example
 --- | --- |--- | ---
-Backslash 1 to 9 | \1 through \9 | Backreference for positions 1 to 9 |
+Backslash 1 to 9 | \1 through \9 | Backreference for positions 1 to 9 | /(apples) to \1/ matches "apples to apples"
 
 - Usage
     - Can be used in the same expression as the group
@@ -317,3 +317,20 @@ Backslash 1 to 9 | \1 through \9 | Backreference for positions 1 to 9 |
 
 - Element is not optional, but group/capture is optional
     - /(A)?B/ matches "B" and does not captures anything
+
+
+**Non-Capturing Group Expression**
+
+Name | Metacharacter | Meaning | Example
+--- | --- |--- | ---
+Question mark colon | ?: | Specify a non-capturing group | /(\w+)/becomes/(?:\w+)/
+
+- Syntax 
+    - /(\w+)/becomes/(?:\w+)/
+
+- Turns off capture and backreferences
+    - Optimize for speed
+    - Preserve space for more captures
+
+- Support
+    - Most regex engines except Unix tools
