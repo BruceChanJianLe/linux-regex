@@ -286,3 +286,34 @@ Backslash 1 to 9 | \1 through \9 | Backreference for positions 1 to 9 |
     - /(apples) to \1/ matches "apples to apples"
     - /(ab)(cd)(ef)\3\2\1/ matches "abcdefefcdab"
     - /<(i|em)>.+?</\1> matches "<i>Hello</i>" and "<em>Hello</em>"; it does not match "<i>Hello</em>
+
+**Optional Expressions**
+
+- Optional elementss
+    - /A?B/ matches "AB" or "B"
+
+- Captures occur on zero-width matches
+    - /(A?)B/ matches "AB" and captures "A"
+    - /(A?)B/ matches "B" and captures ""
+
+- Backreference become zero-width too
+    - /(A?)B\1/ matches "ABA" and "B"
+    - /(A?)B\1C/ matches "ABAC" and "BC"
+
+**The Right way to do!!!**
+
+- Captures do not always occur on optional groups
+    - /(A)?B/ matches "AB" and captures "A"
+    - /(A)?B/ matches "B" and does not captures anything
+
+- Backreference is to a group that failed to match
+    - /(A)?B\1/ matches "ABA" but not "B"
+    - Except in JavaScript
+
+**The differences**
+
+- Element is optional, group/capture is not optional
+    - /(A?)B/ matches "B" and captures ""
+
+- Element is not optional, but group/capture is optional
+    - /(A)?B/ matches "B" and does not captures anything
