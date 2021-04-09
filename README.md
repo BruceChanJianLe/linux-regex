@@ -327,6 +327,8 @@ Question mark colon | ?: | Specify a non-capturing group | /(\w+)/becomes/(?:\w+
 
 - Syntax 
     - /(\w+)/becomes/(?:\w+)/
+    - ? = "Give this group a different meaning"
+    - : = "The meaning is non-capturing"
 
 - Turns off capture and backreferences
     - Optimize for speed
