@@ -360,4 +360,5 @@ Question mark equal sign | ?= | Positive lookahead assertion | /(\w+)/becomes/(?
     - /(?=seashore)sea/ matches "sea" in "seashore" but not "seaside"
     - Same as /sea(?=shore)/
 
-Explanation: (?=seashore)sea matches only the sea in seashore
+Explanation: (?=seashore)sea matches only the sea in seashore  
+Usage: \b[A-Za-z']\b(?=,) this will match `Emerson,` but only the `Emerson` is match but it need the comma there.  
