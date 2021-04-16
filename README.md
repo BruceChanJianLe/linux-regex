@@ -336,3 +336,28 @@ Question mark colon | ?: | Specify a non-capturing group | /(\w+)/becomes/(?:\w+
 
 - Support
     - Most regex engines except Unix tools
+
+## Lookahead Assertions
+
+- Positive lookahead assertions
+
+Name | Metacharacter | Meaning | Example
+--- | --- |--- | ---
+Question mark equal sign | ?= | Positive lookahead assertion | /(\w+)/becomes/(?:\w+)/
+
+- Assertion of what ought to be ahead
+    - If lookahead expression fails, the match fails
+    - Any valid regular expression can be used
+    - Zero-width, does not include group in the match
+
+- Support
+    - Most regex engines except Unix
+
+- Syntax
+    - /(?=regex)/
+
+- Example
+    - /(?=seashore)sea/ matches "sea" in "seashore" but not "seaside"
+    - Same as /sea(?=shore)/
+
+Explanation: (?=seashore)sea matches only the sea in seashore
