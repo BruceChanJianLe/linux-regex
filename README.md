@@ -362,3 +362,16 @@ Question mark equal sign | ?= | Positive lookahead assertion | /(\w+)/becomes/(?
 
 Explanation: (?=seashore)sea matches only the sea in seashore  
 Usage: \b[A-Za-z']\b(?=,) this will match `Emerson,` but only the `Emerson` is match but it need the comma there.  
+
+**Double-testing with Lookahead Assertions**  
+
+Difference between /(?=seashore)sea/ and /sea(?=shore)/  
+- It matches seashore first before attempting for sea
+- It matches sea first then look for shore
+
+- Match a pattern that also matches another pattern
+    - /\d{3}-\d{3}-\d{4}/ matches "555-302-4321" and "555-781-6978"
+    - /^[0-5\-]+$/ mathces "555-302-4321" and "23410-5"
+    - /(?=^[0-5\-]+$)\d{3}-\d{3}-\d{4}/ matches "555-302-3421"
+    - /(?=^[0-5\-]+$)(?=.*4321)\d{3}-\d{3}-\d{4}/ matches "555-302-4321"
+
