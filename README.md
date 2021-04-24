@@ -343,7 +343,7 @@ Question mark colon | ?: | Specify a non-capturing group | /(\w+)/becomes/(?:\w+
 
 Name | Metacharacter | Meaning | Example
 --- | --- |--- | ---
-Question mark equal sign | ?= | Positive lookahead assertion | /(\w+)/becomes/(?:\w+)/
+Question mark equal sign | ?= | Positive lookahead assertion | /(?=seashore)sea/ matches "sea" in "seashore" but not "seaside"
 
 - Assertion of what ought to be ahead
     - If lookahead expression fails, the match fails
@@ -375,3 +375,18 @@ Difference between /(?=seashore)sea/ and /sea(?=shore)/
     - /(?=^[0-5\-]+$)\d{3}-\d{3}-\d{4}/ matches "555-302-3421"
     - /(?=^[0-5\-]+$)(?=.*4321)\d{3}-\d{3}-\d{4}/ matches "555-302-4321"
 
+
+- Negative lookahead assertions
+
+Name | Metacharacter | Meaning | Example
+--- | --- |--- | ---
+Question mark exclamation mark | ?! | Negative lookahead assertion | //
+
+- Syntax
+    - /(?!regex)/
+
+- Example
+    - /(?!seashore)sea/ matches "sea" in "seaside" but not in "seashore"
+    - Same as /sea(?!shore)/
+    - /online(?! training)/ does not match "online training"
+    - 
