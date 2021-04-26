@@ -425,3 +425,23 @@ Question mark, less than, exclamation mark | ?! | Negative lookbehind assertion 
     - Alternation only with fixed-length items
         - Allowed: (?<=cat|dog|rat)
         - Not allowed: (?<=apple|banana|plum)
+
+## The Power of Positions (for lookahead and lookbehind)
+
+- Allows testing of a regular exoressuib aoart from matching
+    - Peek forwards or backwards
+        - /sea(?=shore)/
+    - Match a string using multiple expressions
+        - /^(?=.*\d)(?=.*[A-Z]).{8,15}$/
+    - Define rejection expressions
+        - /online(?! training)/
+    - Find last occurrence
+        - /(item)(?!.*\1)/
+
+- Zero-width means zero position movement
+    - /(?=seashore)sea/ matches "sea" in "seashore"
+    - /(?<![$\d])\d+\.\d\d/ matches "54.00" but not "$54.00"
+    - /(?<![$\d])(?=\d+\.\d\d)/ matches but final match is zero-width
+        - What gets matched? matches zero-width
+        - Where is the regular expression engine pointer? Pointing at 5
+    - Useful for inserting text (sing find and replace)
