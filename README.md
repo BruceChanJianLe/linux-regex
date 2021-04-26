@@ -393,3 +393,35 @@ Question mark exclamation mark | ?! | Negative lookahead assertion | /(?!seashor
 
 ## Lookbehind Assertions
 
+
+Name | Metacharacter | Meaning | Example
+--- | --- |--- | ---
+Question mark, less than, equal sign | ?! | Positive lookbehind assertion | /(?!seashore)sea/ matches "sea" in "seaside" but not in "seashore"/
+Question mark, less than, exclamation mark | ?! | Negative lookbehind assertion | /(?!seashore)sea/ matches "sea" in "seaside" but not in "seashore"/
+
+- Assertion of what ought to be behind
+    - Similar to lookahead assertions
+    - If lookbehind expression fails, the match fails
+    - Any valid regular expression can be used
+    - Zero-width, does not include group in the match
+
+- Syntax
+    - /(?<=regex)/
+    - /(?<!regex)/
+
+- Examples
+    - /(?<=base)ball/ matches the "ball" in "baseball" but not "football"
+    - Same as /ball(?<=baseball)/
+    - /(?<!base)ball/ matches the "ball" in "football" but not in "basebal"
+
+- Support
+    - Simple expressions in .NET, Java, Perl, PHP, Python, Ruby 1.9
+    - Not supported in JavaScript, Ruby 1.8, Unix
+
+- Simple expressions means fixed length
+    - Literal text
+    - Character classes
+    - No repetition or optional expressions
+    - Alternation only with fixed-length items
+        - Allowed: (?<=cat|dog|rat)
+        - Not allowed: (?<=apple|banana|plum)
