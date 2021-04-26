@@ -380,7 +380,7 @@ Difference between /(?=seashore)sea/ and /sea(?=shore)/
 
 Name | Metacharacter | Meaning | Example
 --- | --- |--- | ---
-Question mark exclamation mark | ?! | Negative lookahead assertion | //
+Question mark exclamation mark | ?! | Negative lookahead assertion | /(?!seashore)sea/ matches "sea" in "seaside" but not in "seashore"/
 
 - Syntax
     - /(?!regex)/
@@ -390,4 +390,6 @@ Question mark exclamation mark | ?! | Negative lookahead assertion | //
     - Same as /sea(?!shore)/
     - /online(?! training)/ does not match "online training"
     -  /online(?!.*training)/ does not match "online video traning"
+
+## Lookbehind Assertions
 
