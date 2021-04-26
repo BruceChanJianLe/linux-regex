@@ -389,4 +389,5 @@ Question mark exclamation mark | ?! | Negative lookahead assertion | //
     - /(?!seashore)sea/ matches "sea" in "seaside" but not in "seashore"
     - Same as /sea(?!shore)/
     - /online(?! training)/ does not match "online training"
-    - 
+    -  /online(?!.*training)/ does not match "online video traning"
+
