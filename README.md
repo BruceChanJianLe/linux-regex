@@ -475,3 +475,22 @@ Question mark, less than, exclamation mark | ?! | Negative lookbehind assertion 
         - "e" can be U+00E9 or U+0065 or U+0301
         - Can combine more than two
 
+**Unicode in Regular Expressions**  
+
+- Complications for regular expressions
+    - Words can be spelled multiple ways
+        - "cafe", "cafe"
+    - Words can be encoded multiple ways
+        - "cafe" can be encoded as four or five characters
+    - Wildcard matching
+    - Backtracking
+    - Unicode is relatively new
+
+- Unicode indicator: `\u`
+    - `\u` followed by four-digit hexadecimal number (0000-FFFF)
+    - /caf\u00E9/ matches "cafe" but not "cafe"
+
+- Support
+    - Java, JavaScript, .NET, Python, Ruby
+    - Perl and PHP use `\x` instead
+    - Not supported in older Unix tools
