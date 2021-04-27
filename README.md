@@ -524,3 +524,10 @@ Number | N
 Punctuation | P
 Other | C
 
+- Unicode not-property: `\P{property}`
+    - Matches characters that do not have a property
+    - /caf\P{M}\p{M}/ matches "cafe" (accent)
+
+- Support
+    - Jave, .NET, Perl, PHP, Ruby
+    - Not JavaScript, Python, and Unix tools
