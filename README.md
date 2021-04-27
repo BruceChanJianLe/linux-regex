@@ -494,3 +494,33 @@ Question mark, less than, exclamation mark | ?! | Negative lookbehind assertion 
     - Java, JavaScript, .NET, Python, Ruby
     - Perl and PHP use `\x` instead
     - Not supported in older Unix tools
+
+**Using the Wildcard Character**  
+
+Method 1:  
+- Unicode wildcard: `\X`
+    - Matches any single character
+    - Always matches line breaks (like /./s)
+    - /caf\X/ matches "cafe" and "cafe"
+
+- Support
+    - Only supported by Perl
+
+Method 2:  
+
+- Unicode property: `\p{property}`
+    - Matches characters that have a property
+    - /\p{Mark}/ or /\p{M}/ matches any "mark" (accent)
+    - /\p{Letter}/ or /\p{L}/ matches any letter
+
+
+Unicode Property | Abbreviation
+--- | ---
+Letter | L
+Mark | M
+Separator | Z
+Symbol | S
+Number | N
+Punctuation | P
+Other | C
+
