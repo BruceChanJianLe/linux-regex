@@ -445,3 +445,33 @@ Question mark, less than, exclamation mark | ?! | Negative lookbehind assertion 
         - What gets matched? matches zero-width
         - Where is the regular expression engine pointer? Pointing at 5
     - Useful for inserting text (sing find and replace)
+
+## Unicode
+
+- Single byte
+    - Uses one byte (eight bits) to represent a character
+    - Allows for 256 characters
+    - A-Z, a-z, 0-9, punctuation, common symbols
+
+- Double byte
+    - Uses two bytes (16 bits) to represent a character
+    - Allows for 65536 characters
+
+- Many more characters than English alphabet
+    - Latin
+    - Symbols
+    - Arabic, Chinese, Greek, Hewbrew, Korean, Thai
+    - Over 109,000 characters
+
+- Unicode
+    - Variable byte size
+    - Maintains compatibility with one- and two-byte encoding
+    - Allow for over one million character
+
+    - Mapping between a character and a number
+    - "U+" followed by a four-digit hexadecimal number
+        - "infinity" is written as U+221E
+    - Combinations
+        - "e" can be U+00E9 or U+0065 or U+0301
+        - Can combine more than two
+
