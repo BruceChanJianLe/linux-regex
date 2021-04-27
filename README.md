@@ -531,3 +531,40 @@ Other | C
 - Support
     - Jave, .NET, Perl, PHP, Ruby
     - Not JavaScript, Python, and Unix tools
+
+## Common Regular Expressions
+
+- Not one-size-fits-all regular expressions
+- Any regular expression can be written broadly or narrowly
+    - Broad: permissive
+    - Narrow: restrictive, brittle
+
+- Regular expression to match a year
+    - /\d{4}/ matches 2005, but also 0000-9999
+    - /(19|20)\d\d/ matches 1800-2099
+    - /(19[5-9]\d|20[0-4]\d)/ matches 1950-2049
+
+**Never use someone else's regular expression without checking it carefully and fine-tuning it for your specific purpose**  
+
+- How to write or customize a regular expression
+    - Examine the data to be matched
+    - Determine what aspects of the data are important
+    - Determine what level of precision is required
+    - Make a list of "edge cases" to test
+        - Longest, shortest
+        - Highest, lowest
+        - Most unusual, most oddly-formatted
+
+- Use anchors, delimiters, or context
+    - /\w+/ matches "%^@X&*!"
+    - /^\w+$/
+    - /\b\w+\b/
+    - / \w+ /
+    - /,\w+,/
+    - /and \w+\./
+
+- Be mindful of greediness and laziness
+
+
+### Matching Names
+
