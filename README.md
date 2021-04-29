@@ -568,3 +568,41 @@ Other | C
 
 ### Matching Names
 
+Names:
+```
+Kelvin
+Lynda
+Charlie
+Lucy
+Linus
+Sally
+Geirge Washington
+John Quincy Adams
+```
+
+Possible regexes | Explanation
+--- | ---
+\w+ | matches also `kevin` in `$kevin`
+^\w+$ | will exclude `$kevin` but it will match `0kevin`
+^[A-Z][A-Za-z]+$ | but it will not match `J.R.`
+^([A-Z][A-Za-z.'\-]+) ([A-Z][A-Za-z.'\-]+)$ | matches `George Washington`
+^([A-Z][A-Za-z.'\-]+) (([A-Z][A-Za-z/'\-]+) )?([A-Z][A-Za-z.'\-]+)$ | matches `John Quincy Adams`
+
+
+### Matching Postal Codes
+
+- U.S postal code format
+    - Five digits
+    - Five digits, dash, four digits
+
+Examples:
+```
+75087
+10010-6543
+12345678
+```
+
+Possible regexes | Explanation
+--- | ---
+\d{5} | matches `12345` in `1234567` as well as `10010` in `10010-6543`
+^\d{5}$ | will exclude `10010-6543`
