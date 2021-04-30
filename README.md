@@ -606,3 +606,7 @@ Possible regexes | Explanation
 --- | ---
 \d{5} | matches `12345` in `1234567` as well as `10010` in `10010-6543`
 ^\d{5}$ | will exclude `10010-6543`
+^\d{5}(?:-\d{4})?$ | will matches both `75087` and `10010-6543`
+
+### Matching Emails
+
