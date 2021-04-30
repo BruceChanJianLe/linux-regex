@@ -636,6 +636,7 @@ Possible regexes | Explanation
     - http://www.nowhere.com/product_page.php?product=28
     - http://www.nowhere.com?product=28&color=blue
     - http://www.nowhere.com#details
+    - http://255.255.255.255
 
 Examples:
 ```
@@ -650,4 +651,10 @@ http://www.nowhere.com/product/3456
 http://www.nowhere.com/product_page.php?product=28
 http://www.nowhere.com?product=28&color=blue
 http://www.nowhere.com#details
+http://255.255.255.255
 ```
+
+Possible regexes | Explanation
+--- | ---
+^(http|https):\/\/[\w.\-]+(\.[\w\-]+)+[\w\-.,@?^=%&;:/~\\+#]+$ | matches all the above examples
+^(?:http|https):\/\/[\w.\-]+(?:\.[\w\-]+)+[\w\-.,@?^=%&;:/~\\+#]+$ | matches all the above examples with non-capturing groups
