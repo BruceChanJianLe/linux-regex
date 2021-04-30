@@ -610,3 +610,14 @@ Possible regexes | Explanation
 
 ### Matching Emails
 
+Examples:
+```
+someone@somewhere.com
+someone@somewhere.co.uk
+```
+
+Possible regexes | Explanation
+--- | ---
+^\w+@\w+\.\w{3}$ | matches `someone@somewhere.com`
+^\w+@[\w.]+\.[A-Za-z]{2,3}$ | matches `someone@somewhere.com` and `someone@somewhere.co.uk`
+^[\w.%+\-]+@[\w.\-]+\.[A-Za-z]{2,3}$ | matches `someone@somewhere.com` and `someone@somewhere.co.uk`
