@@ -621,3 +621,33 @@ Possible regexes | Explanation
 ^\w+@\w+\.\w{3}$ | matches `someone@somewhere.com`
 ^\w+@[\w.]+\.[A-Za-z]{2,3}$ | matches `someone@somewhere.com` and `someone@somewhere.co.uk`
 ^[\w.%+\-]+@[\w.\-]+\.[A-Za-z]{2,3}$ | matches `someone@somewhere.com` and `someone@somewhere.co.uk`
+
+### Matching URLs
+
+- Sample URLs
+    - http://www.nowhere.com
+    - http://nowhere.com
+    - https://blog.nowhere.com
+    - https://www.nowhere.com
+    - http://www.nowhere.com/product_page.html
+    - http://www.nowhere.com/images/image.gif
+    - http://www.nowhere.com/product
+    - http://www.nowhere.com/product/3456
+    - http://www.nowhere.com/product_page.php?product=28
+    - http://www.nowhere.com?product=28&color=blue
+    - http://www.nowhere.com#details
+
+Examples:
+```
+http://www.nowhere.com
+http://nowhere.com
+https://blog.nowhere.com
+https://www.nowhere.com
+http://www.nowhere.com/product_page.html
+http://www.nowhere.com/images/image.gif
+http://www.nowhere.com/product
+http://www.nowhere.com/product/3456
+http://www.nowhere.com/product_page.php?product=28
+http://www.nowhere.com?product=28&color=blue
+http://www.nowhere.com#details
+```
