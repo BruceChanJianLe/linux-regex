@@ -658,3 +658,28 @@ Possible regexes | Explanation
 --- | ---
 ^(http|https):\/\/[\w.\-]+(\.[\w\-]+)+[\w\-.,@?^=%&;:/~\\+#]+$ | matches all the above examples
 ^(?:http|https):\/\/[\w.\-]+(?:\.[\w\-]+)+[\w\-.,@?^=%&;:/~\\+#]+$ | matches all the above examples with non-capturing groups
+
+### Matching Decimal Numbers and Currency
+
+- Decimal or floating point samples
+    - 5.1
+    - 314.27918
+    - 0.123
+    - .345
+    - 23
+
+Possible regexes | Explanation
+--- | ---
+^\d+\.\d+$ | matches `5.1`, `314.27918` and `0.123`
+^\d*\.?\d*$ | matches all and also empty string as all is optional
+^(\d*\.\d+|\d+)$ | matches correctly
+
+- Currency
+    - $50
+    - $43.23
+    - $0.39
+    - $.60
+
+Possible regexes | Explanation
+--- | ---
+^\$(\d*\.\d+|\d+)$ | matches correctly
