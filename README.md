@@ -682,4 +682,31 @@ Possible regexes | Explanation
 
 Possible regexes | Explanation
 --- | ---
-^\$(\d*\.\d+|\d+)$ | matches correctly
+^\$(\d*\.\d+|\d+)$ | matches correctly every examples
+
+### Matching IP Address
+
+- IP Address samples
+    - 255.255.255.255
+    - 0.0.0.0
+    - 67.52.159.38
+    - 067.052.159.038
+
+Possible regexes | Explanation
+--- | ---
+^\d+\.\d+\.\d+\.\d+$ | matches all, but it is unlimited like `9999.999.99999.9999`
+^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$ | matches all, but it is unlimited like `9999.999.99999.9999`
+^[012]?[0-9]?[0-9]\.[012]?[0-9]?[0-9]\.[012]?[0-9]?[0-9]\.[012]?[0-9]?[0-9]$ | matches all, but it is unlimited like `299.299.299.299`
+
+- Breaking down 255
+    - 250-255: /25[0-5]/
+    - 200-249: /2[0-4][0-9]/
+    - 100-199: /1[0-9][0-9]/
+    - 000-099: /0?[0-9][0-9]?/
+
+- Shorter (combine last two)
+    - 000-199: /[01]?[0-9][0-9]?/
+
+Possible regexes | Explanation
+--- | ---
+^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$ | matches every ip address correctly
