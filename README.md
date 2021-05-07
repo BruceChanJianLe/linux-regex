@@ -735,3 +735,23 @@ Possible regexes | Explanation
 Possible regexes | Explanation
 --- | ---
 ^\d{4}[-/](0?[1-9]|1[0-2])[-/](0?[1-9]|[12][0-9]|3[01])$ | matches the dates correctly
+
+### Matching Times
+
+- Time format
+    - 12 hour or 24 hour?
+    - AM/PM or am/pm?
+    - Leading zero allowed?
+    - Include seconds?
+    - Timezone?
+    - Three-letter timezone or offset from GMT?
+
+- Times sample
+    - 2:34
+    - 2:34pm
+    - 2:34PM
+    - 02:34
+    - 14:34
+    - 14:34:56
+    - 14:34 EST
+    - 14:34 GMT -5
