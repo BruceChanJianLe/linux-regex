@@ -710,3 +710,28 @@ Possible regexes | Explanation
 Possible regexes | Explanation
 --- | ---
 ^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$ | matches every ip address correctly
+
+### Matching Dates
+
+- Date samples (year, month, date)
+    - 2000-11-25
+    - 2000-6-9
+    - 2000-06-09
+    - 2000/6/9
+
+Possible regexes | Explanation
+--- | ---
+^\d{4}[-/]\d{1,2}[-/]\d{1-2}$ | matches all of the above examples, but also matches `2000-14-55`
+
+- Breaking down 31
+    - 30-31: /3[01]/
+    - 20-29: /2[0-9]/
+    - 10-19: /1[0-9]/
+    - 01-09: /0?[1-9]/
+
+- Shorter (combine 10 and 20)
+    - 10-29: /[12][0-9]/
+
+Possible regexes | Explanation
+--- | ---
+^\d{4}[-/](0?[1-9]|1[0-2])[-/](0?[1-9]|[12][0-9]|3[01])$ | matches the dates correctly
