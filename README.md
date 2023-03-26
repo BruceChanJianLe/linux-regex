@@ -755,3 +755,22 @@ Possible regexes | Explanation
     - 14:34:56
     - 14:34 EST
     - 14:34 GMT -5
+
+### Matching HTML Tags
+
+- HTML tag sample
+    - `<strong>Strong</strong>`
+    - `<em>Emphasized</em>`
+    - `<b>Bold</b>`
+    - `<i>Italics</i>`
+    - `<span id="foo" class="bar">Some text</span>`
+    - `<hr/>`
+
+
+Possible regexes | Explanation
+--- | ---
+^<strong\|em>(.*?)</(strong\|em)>$ | matches the first two examples but also matches wrong tags like `<strong>*</em>`
+^<strong\|em>(.*?)</(/\1)>$ | this will match strong and strong as well as em and em tags
+^<([^>]+)>(.*?)</(/\1)>$ | matches the first four examples but not the last two
+^<([A-Za-z][A-Za-z0-9]\*)\b[^>]\*>(.\*?)</(/\1)>$ | matches the first four examples but not the last two
+^<(?:([A-Za-z][A-Za-z0-9]\*)\b[^>]\*>(?:.\*?)</(/\1)|[A-Za-z][A-Za-z0-9]\*\b[^>]\*/>)$ | matches every HTML tags
